@@ -2,7 +2,6 @@ let state = 0
 
 let img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12;
 
-//let pets = [img2, img3, img4, img5];
 
 //Randomizer Box Parameters
 let x1 = 160;
@@ -59,10 +58,10 @@ function preload() {
   ranpet = loadImage(pets[pos]);
   
   //Array of Environments
-  environments = ["valley.png", "forest.png", "casino.png", "office.png"];
+  places = ["valley.png", "forest.png", "casino.png"];
   //Click for Random Environment
-  var pas = floor(random(environments.length));
-  ranment = loadImage(environments[pas]);
+  var env = floor(random(places.length));
+  ranment = loadImage(places[env]);
 }
 function setup() {
   createCanvas(500, 500);
@@ -116,10 +115,12 @@ function draw1() {
 function draw2() {
   bGD();
   
-  background(175);
+  background(ranment);
   //text("RANDOMIZER", 100, 100, 100, 100);
   
   // bGD();
+  
+  randoenv();
   
   bBM();
   
@@ -142,7 +143,7 @@ function draw2() {
   }
   
   // if (mouseIsPressed == true && (mouseX > x3) && (mouseX < x3 + w3) && (mouseY > y3) && (mouseY < y3 + h3)){
-  //   background(image(ranment, 0, 0));
+  //   background(image(ranment, 20, 20));
   // }
   
   cursorSP();
@@ -197,4 +198,10 @@ function bFD() {
 function bBM() {
   fill(250);
   rect(x5, y5, w5, h5);
+}
+
+function randoenv() {
+   if (mouseIsPressed == true && (mouseX > x3) && (mouseX < x3 + w3) && (mouseY > y3) && (mouseY < y3 + h3)){
+     image(ranment,0, 0);
+   }
 }
